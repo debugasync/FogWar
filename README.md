@@ -1,5 +1,25 @@
 # FogWar
 
+**Scrapped. Left up as a reference, not maintained.**
+
+The idea is sound (it's how Valorant does fog of war) but the Roblox engine does not
+give you the hooks to pull it off cleanly. FogWar only means anything if you stop the
+engine from replicating characters by default, and there is no way to un-replicate a
+character from one client in stock Roblox. The moment you go full custom replication
+to get around that, you inherit everything default replication gave you for free:
+animations, tools, accessories, ragdolls, network ownership. Streaming all of that
+yourself, animations especially, over an unreliable channel at tick rate is more work
+and less reliable than it is worth for basically any real game.
+
+It is still usable for **server-driven entities** (NPCs, AI bots) or for games that
+already run their own character replication, since those never depended on the default
+path. For a normal game with default characters, it does nothing, a client-side
+highlight reads the real body straight out of Workspace and walks right through it.
+
+Everything below is the original writeup.
+
+---
+
 Server-authoritative visibility replication for Roblox. The server only tells a
 client where an enemy is when that client can actually see them. If you can't see
 someone, your client never receives their position, so wallhacks and ESP have
