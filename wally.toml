@@ -1,0 +1,7 @@
+[package]
+name = "debugasync/fogwar"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+license = "MIT"
+description = "server-authoritative visibility replication for roblox shooters"

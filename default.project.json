@@ -1,0 +1,11 @@
+{
+    "name": "FogWar",
+    "tree": {
+        "$className": "DataModel",
+        "ReplicatedStorage": {
+            "FogWar": {
+                "$path": "src"
+            }
+        }
+    }
+}
