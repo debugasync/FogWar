@@ -190,7 +190,7 @@ end
 -- Targets
 do
     FogWar.AddTarget = function(Id, Root)
-        assert(type(Id) == "number", "target id must be a number that fits in u32 (UserId works)")
+        assert(type(Id) == "number", "target id must be a number (UserId works)")
 
         if Targets[Id] then
             return Targets[Id]
