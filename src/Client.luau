@@ -27,6 +27,16 @@ local Scratch = {}
 local Remote
 local VisibilityFn
 
+FogWarClient.Configure = function(Options)
+    if Options.InterpDelay then
+        InterpDelay = Options.InterpDelay
+    end
+
+    if Options.HideAfter then
+        HideAfter = Options.HideAfter
+    end
+end
+
 
 local function AngleLerp(A, B, Alpha)
     local Difference = (B - A) % TwoPi
