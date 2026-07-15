@@ -117,6 +117,27 @@ you decide what that means (parent swap, transparency, disable, whatever).
 | UseFieldOfView | false | also require the target be in front |
 | FieldOfView | 100 | degrees, only if UseFieldOfView is on |
 
+## the other half: gate your own remotes
+
+Hiding characters is only worth something if nothing else leaks position. Any remote
+you fire to all clients with a location in it (gunshot origins, hitmarkers, nametags,
+kill feed coordinates, positional sound) hands a cheater exactly what FogWar withheld.
+A smart cheater does not hook the client, they go find one of these.
+
+`IsVisible` is the gate. Ask it before you send:
+
+```lua
+for _, player in Players:GetPlayers() do
+    if FogWar.IsVisible(player, shooter.UserId) then
+        GunshotRelay:FireClient(player, shooter.UserId, origin)
+    end
+end
+```
+
+Now the gunshot only reaches people who could already see the shooter. Do this for
+every channel that carries a position and the surface actually closes. It returns
+true while a target is live or inside the linger window, false otherwise.
+
 ## limitations
 
 - you need custom replication, see the top of this readme
