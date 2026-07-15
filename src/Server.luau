@@ -429,6 +429,20 @@ do
         RelationFn = Callback
     end
 
+    FogWar.IsVisible = function(Player, TargetId)
+        local Data = Viewers[Player]
+        if not Data then
+            return false
+        end
+
+        local Memory = Data.Seen[TargetId]
+        if not Memory then
+            return false
+        end
+
+        return Clock() - Memory.Time <= Config.LingerTime
+    end
+
     FogWar.BindPlayers = function()
         local function OnCharacter(Player, Character)
             local Root = Character:WaitForChild("HumanoidRootPart", 10)
