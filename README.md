@@ -1,22 +1,12 @@
 # FogWar
 
-**Scrapped. Left up as a reference, not maintained.**
+**Scrapped. Leaving it up as a reference, not maintaining it.**
 
-The idea is sound (it's how Valorant does fog of war) but the Roblox engine does not
-give you the hooks to pull it off cleanly. FogWar only means anything if you stop the
-engine from replicating characters by default, and there is no way to un-replicate a
-character from one client in stock Roblox. The moment you go full custom replication
-to get around that, you inherit everything default replication gave you for free:
-animations, tools, accessories, ragdolls, network ownership. Streaming all of that
-yourself, animations especially, over an unreliable channel at tick rate is more work
-and less reliable than it is worth for basically any real game.
+The idea itself is fine, it's basically how Valorant does fog of war, but Roblox doesn't hand you the hooks to actually pull it off. The catch is that FogWar only means anything if you stop the engine from replicating characters in the first place, and there's just no way to un-replicate a character from one specific client in stock Roblox. So to get around that you'd go full custom replication, and the second you do, you're suddenly on the hook for everything default replication was quietly doing for you: animations, tools, accessories, ragdolls, network ownership, all of it. Streaming that yourself over an unreliable channel at tick rate, the animations especially, is way more work and way less reliable than it's worth for basically any real game. I found that out the annoying way.
 
-It is still usable for **server-driven entities** (NPCs, AI bots) or for games that
-already run their own character replication, since those never depended on the default
-path. For a normal game with default characters, it does nothing, a client-side
-highlight reads the real body straight out of Workspace and walks right through it.
+It's still fine for **server-driven stuff** like NPCs or AI bots, or for a game that already runs its own character replication, since none of those leaned on the default path to begin with. For a normal game with default characters it does nothing useful, a client-side highlight just reads the real body straight out of Workspace and walks right through it. I tested exactly that and it walked right through it.
 
-Everything below is the original writeup.
+The original writeup is below if you want to see how it was meant to work.
 
 ---
 
